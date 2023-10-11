@@ -13,7 +13,7 @@
             <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp" autocomplete="true" placeholder="Nombre del Rol">
             @foreach($permissions as $permission)
                 <label>
-                    {{$permission->name}}
+                    {{$permission->description}}
                     <input type="checkbox" name="permissions[]" value="{{$permission->id}}">
                 </label>
             @endforeach

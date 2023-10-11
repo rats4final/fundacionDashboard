@@ -42,7 +42,13 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'name' => ['required']
+        ]);
+        $role = Role::create($request->all());
+        $role->permissions()->sync($request->permissions);
+
+        return to_route('roles.index');
     }
 
     /**
@@ -51,9 +57,10 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Role $role)
     {
-        //
+        $role->load('permissions');
+        return \view('admin.roles.show', compact('role'));
     }
 
     /**
@@ -62,9 +69,10 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        $permissions =  Permission::all();
+        return \view('admin.roles.edit', compact('role','permissions'));
     }
 
     /**
@@ -74,9 +82,11 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
-        //
+      //TODO:agregar cambio de nombre del rol
+      $role->permissions()->sync($request->permissions);//metodo magico, tal vez mejor usar $request->input('roles')
+      return to_route('roles.edit', $role);
     }
 
     /**
@@ -85,8 +95,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return to_route('roles.index');
     }
 }
