@@ -16,4 +16,8 @@ return [
     'important'                     => 'Importante',
     'warning'                       => 'Advertencia',
     'information'                   => 'Información',
+    'reports'                       => 'Reportes',
+    'users'                         => 'Usuarios',
+    'roles'                         => 'Roles',
+    'stats'                         => "ESTADÍSTICAS"
 ];

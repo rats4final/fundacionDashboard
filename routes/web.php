@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -32,8 +33,11 @@ Route::middleware('auth')->group(function () {
 
 Route::view('components', 'components');
 
+Route::view('reports', 'reports');
+
 Route::get('/users/trashed', [UserController::class, 'trashed'])->name('users.trashed');
 Route::resource('users', UserController::class)->middleware('can:admin.dashboard');
 Route::resource('roles', RoleController::class);
+Route::resource('permissions', PermissionController::class);
 
 require __DIR__.'/auth.php';

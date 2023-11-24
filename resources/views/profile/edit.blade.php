@@ -1,9 +1,11 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="fw-bold display-4 text-dark lh-1">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+@section('plugins.Datatables', true)
+@section('content_header')
+    <h1>{{__("Profile")}}</h1>
+@stop
+@section('content')
 
     <div class="container py-4">
         <div class="row justify-content-center">
@@ -35,4 +37,4 @@
         </div>
     </div>
 
-</x-app-layout>
+@endsection
