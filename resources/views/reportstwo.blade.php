@@ -38,7 +38,7 @@
         const myChart = new Chart(
             document.getElementById('firstChart'),
             {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: data.map(row => row.year),
                     datasets: [

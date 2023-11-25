@@ -314,8 +314,20 @@ return [
         ['header' => 'stats'],
         [
             'text' => 'reports',
-            'url' => 'admin/reports',
-            'icon' => 'fas fa-chart-pie'
+            'icon' => 'fas fa-chart-pie',
+            'submenu' => [
+                [
+                    'text' => 'report1',
+                    'url'  => '/reports',
+                    'icon' => 'fas fa-fw fa-share',
+                ],
+                [
+                    'text' => 'report2',
+                    'url'  => '/reportstwo',
+                    'icon' => 'fas fa-fw fa-share',
+                ]
+            ],
+
         ],
         ['header' => 'CRUDS'],
         [
@@ -335,6 +347,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'show_roles',
+                    'url'  => '/roles',
+                    'icon' => 'fas fa-address-book',
+                ]
+            ],
+        ],
+        [
+            'text' => 'permissions',
+            'icon' => 'fas fa-user-tag',
+            'submenu' => [
+                [
+                    'text' => 'show_permissions',
                     'url'  => '/roles',
                     'icon' => 'fas fa-address-book',
                 ]

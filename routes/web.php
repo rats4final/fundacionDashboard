@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
 Route::view('components', 'components');
 
 Route::view('reports', 'reports');
+Route::view('reportstwo','reportstwo');
 
 Route::get('/users/trashed', [UserController::class, 'trashed'])->name('users.trashed');
 Route::resource('users', UserController::class)->middleware('can:admin.dashboard');
