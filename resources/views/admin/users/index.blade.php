@@ -4,6 +4,7 @@
 @section('plugins.Datatables', true)
 @section('content_header')
     <h1>Users Test</h1>
+    <a href="{{route("users.create")}}" class="btn btn-secondary float-right">Crear Usuario</a>
 @stop
 @section('content')
     @php

@@ -10,7 +10,7 @@
         <div class="card-body">
             <label for="name">Name</label>
             <input value="{{$role->name}}" type="text" name="name" id="name" disabled>
-            <label for="email">Guard</label>
+            <label for="guard_name">Guard</label>
             <input value="{{$role->guard_name}}" type="text" name="guard_name" id="guard_name" disabled>
         </div>
     </div>
@@ -24,7 +24,7 @@
                         type="checkbox"
                         value="{{$permission->id}}"
                         name="permissions[]"
-                        id="{{'role'.$permission->id}}"
+                        id="{{'permission'.$permission->id}}"
                         {{ in_array($permission->id, $role->permissions()->pluck('id')->toArray(), true) ? 'checked' : '' }}
                         {{--El tercer parametro tambien asegura que se chequee el tipo--}}
                 >

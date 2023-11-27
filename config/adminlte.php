@@ -358,7 +358,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'show_permissions',
-                    'url'  => '/roles',
+                    'url'  => '/permissions',
                     'icon' => 'fas fa-address-book',
                 ]
             ],
