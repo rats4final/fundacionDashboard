@@ -6,39 +6,45 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::view('components', 'components'); ruta que estaba usando para probar componentes de adminlte
 
 Route::middleware('auth')->group(function () {
+
+    /*
+     * Rutas del perfil
+     */
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    /*
+     * Ruta principal que lleva al panel
+     */
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    /*
+     * Rutas que llevan a los reportes
+     */
+    Route::view('reports', 'reports');//esto eventualmente sera un controlador
+    Route::view('reportstwo','reportstwo');
+
+    /*
+     * Rutas de las tablas principales
+     */
+    Route::resource('users', UserController::class)->middleware('can:admin.dashboard');
+    Route::resource('roles', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
+
+    /*
+     * Ruta que estaba usando para probar softDeletes
+     */
+    //Route::get('/users/trashed', [UserController::class, 'trashed'])->name('users.trashed');
 });
-
-Route::view('components', 'components');
-
-Route::view('reports', 'reports');
-Route::view('reportstwo','reportstwo');
-
-Route::get('/users/trashed', [UserController::class, 'trashed'])->name('users.trashed');
-Route::resource('users', UserController::class)->middleware('can:admin.dashboard');
-Route::resource('roles', RoleController::class);
-Route::resource('permissions', PermissionController::class);
 
 require __DIR__.'/auth.php';

@@ -38,7 +38,7 @@
                         <x-checkbox id="remember_me" name="remember" />
 
                         <label class="form-check-label" for="remember_me">
-                            {{ __('Remember Me') }}
+                            {{ __('Remember me') }}
                         </label>
                     </div>
                 </div>
