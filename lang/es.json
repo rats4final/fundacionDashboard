@@ -111,5 +111,9 @@
     "Variant Also Negotiates": "Variante También Negocia",
     "Web Server is Down": "El servidor web está caído",
     "You're logged in!": "¡Usted está conectado!",
-    "Your email address is unverified.": "Su dirección de correo electrónico no está verificada."
+    "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
+    "Actions": "Acciones",
+    "Edit": "Editar",
+    "Generate Password": "Generar Contraseña",
+    "Submit": "Guardar"
 }

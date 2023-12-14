@@ -329,37 +329,56 @@ return [
             ],
 
         ],
-        ['header' => 'CRUDS'],
+        //['header' => 'CRUDS',], usar esto solo cuando se este dentro del sidebar
         [
             'text' => 'users',
             'icon' => 'fas fa-users',
+            'topnav_right'=> true,
             'submenu' => [
                 [
                     'text' => 'show_users',
                     'url'  => '/users',
                     'icon' => 'fas fa-fw fa-share',
+                ],
+                [
+                    'text' => 'create_user',
+                    'url'  => '/users/create',
+                    'icon' => 'fas fa-plus-circle',
                 ]
             ],
         ],
         [
             'text' => 'roles',
             'icon' => 'fas fa-user-tag',
+            'topnav_right'=> true,
+            //'can'  => ['add.blog.post', 'other-right'], ejemplo de uso de permisos y roles
             'submenu' => [
                 [
                     'text' => 'show_roles',
                     'url'  => '/roles',
                     'icon' => 'fas fa-address-book',
+                ],
+                [
+                    'text' => 'create_role',
+                    'url'  => '/roles/create',
+                    'icon' => 'fas fa-plus-circle',
                 ]
             ],
         ],
         [
             'text' => 'permissions',
+            'topnav_right'=> true,
             'icon' => 'fas fa-user-tag',
             'submenu' => [
                 [
                     'text' => 'show_permissions',
                     'url'  => '/permissions',
                     'icon' => 'fas fa-address-book',
+                ],
+                [
+                    'text' => 'create_permission',
+                    'url'  => '/permissions/create',
+                    'icon' => 'fas fa-plus-circle',
                 ]
             ],
         ],

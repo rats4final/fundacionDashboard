@@ -9,23 +9,22 @@
     <form action="{{route("users.store")}}" method="post">
         @csrf
         <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label">{{__("Name")}}</label>
             <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp" autocomplete="true">
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
+            <label for="email" class="form-label">{{__("Email")}}</label>
             <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" autocomplete="true">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label">{{__("Password")}}</label>
             <div class="d-flex align-items-center ">
                 <input name="password" type="password" class="form-control" id="password">
                 <i class="fas fa-eye px-2" id="eye"></i>
             </div>
-            <input type="button" class="mt-2" value="Generate Password" id="generatorButton">
+            <input type="button" class="mt-2" value={{__("Generate Password")}} id="generatorButton">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{{__("Submit")}}</button>
     </form>
 @endsection
 @section('js')

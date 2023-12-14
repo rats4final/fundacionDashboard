@@ -9,9 +9,9 @@
 @section('content')
     @php
         $heads = [
-            'Nombre',
-            'Email',
-            ['label' => 'Actions', 'no-export' => true, 'width' => 5],
+            __("Name"),
+            __("Email"),
+            ['label' => __("Actions"), 'no-export' => true, 'width' => 5],
         ];
         #medio rara forma de hacerlo pero se ve un poco mas limpio diria
     @endphp
@@ -24,7 +24,7 @@
                 <td>
                     <div class="d-flex justify-content-center align-items-center">
                         <a href="{{route('users.edit', $user)}}" class="btn btn-xs btn-default text-primary mx-1 shadow"
-                          title="Edit">
+                          title={{__("Edit")}}>
                             <i class="fa fa-lg fa-fw fa-pen"></i>
                         </a>
                         <form action="{{  route('users.destroy', $user) }}" method="post">
